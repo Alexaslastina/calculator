@@ -109,15 +109,16 @@ function AppInput({ rezult, setRezult }) {
     // WARN!!! if we try to use convertor with no usd param: BTC - ILS -> an error can be thrown
 
     return (
-        <div className="container my-5 float-left">
+        <div>
+            <h1>Exchange</h1>
+        <div className="container my-5 ">
             <div className="row">
-                <div className="col-lg-12">
+                <div className=" col-lg-8">
                     <div className="card card-body">
-                        <h5>1 {state.fromCurrency} is equevalent to</h5>
-                        <h2>{state.money.toFixed(4)} {state.toCurrency}</h2>
                         <div className="row">
-                            <div className="col-lg-10">
-                                <form id="from"  className="form-inline mb-4" onSubmit={onSubmit}>
+                            <div className="col-lg-6">
+                                <form id="from"  className=" mb-4" onSubmit={onSubmit}>
+                                    <h4>Insert amount:</h4>
                                     <input
                                       type="number"
                                       name="amount"
@@ -125,6 +126,8 @@ function AppInput({ rezult, setRezult }) {
                                       defaultValue="1"
                                       ref={inputAmountRef}
                                     />
+                                    <br/>
+                                    <h4>From:</h4>
                                     <select name="fromCurrency" className="form-control form-control-lg" onChange={onChangeHandler} value={state.fromCurrency} >
                                         <option value="">Select currency</option>
                                         {state.currencies.map(currencyName => (
@@ -132,18 +135,19 @@ function AppInput({ rezult, setRezult }) {
                                         ))}
                                     </select>
 
-
-                                    <button onClick={swapCurrencies}  className="swap">  &#8595;&#8593; </button>
-
-                                    <br />
-
+                                    <br/>
+                                    <button onClick={swapCurrencies}  className="swap">  &#8595; &#8593; </button>
+                                    
+                                     <h4>To:</h4>
                                     <select id="to" name="toCurrency" className="form-control form-control-lg" onChange={onChangeHandler} value={state.toCurrency}>
                                         <option value="">Select currency</option>
                                         {state.currencies.map(currencyName => (
                                           <option key={currencyName} value={currencyName} >{currencyName}</option>
                                         ))}
                                     </select>
-                                    <button  className="btn btn-danger  d-block mt-3">converte</button>
+                                    
+                                    <button  className="btn btn-danger  d-block mt-3">convert</button>
+                                    <h2>{state.money.toFixed(4)} {state.toCurrency}</h2>
                                 </form>
                      
                             </div>
@@ -152,7 +156,7 @@ function AppInput({ rezult, setRezult }) {
                 </div>
             </div>
         </div>
-
+        </div>
 
     )
 }

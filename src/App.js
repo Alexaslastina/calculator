@@ -1,5 +1,4 @@
-import './App.css';
-
+import "./css/exchange.css";
 import AppExchange from './exchange/appExchange';
 
 
